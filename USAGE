@@ -1,0 +1,42 @@
+USAGE:
+
+---------------------------------------------------------------------------
+% png2pdf.py -h
+usage: png2pdf.py [-h] [-o OUTPUT] files [files ...]
+
+Conversion from multiple PNG files into a single PDF file
+
+positional arguments:
+  files                 input PNG files
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -o OUTPUT, --output OUTPUT
+                        output PDF file
+---------------------------------------------------------------------------
+
+Example:
+
+---------------------------------------------------------------------------
+% ls
+article_20210602_00.png   article_20210602_09.png   article_20210602_18.png
+article_20210602_01.png   article_20210602_10.png   article_20210602_19.png
+article_20210602_02.png   article_20210602_11.png   article_20210602_20.png
+article_20210602_03.png   article_20210602_12.png   article_20210602_21.png
+article_20210602_04.png   article_20210602_13.png   article_20210602_22.png
+article_20210602_05.png   article_20210602_14.png   article_20210602_23.png
+article_20210602_06.png   article_20210602_15.png   article_20210602_24.png
+article_20210602_07.png   article_20210602_16.png   article_20210602_25.png
+article_20210602_08.png   article_20210602_17.png
+% png2pdf.py -o article_20210602.pdf article_20210602_*.png
+% ls
+article_20210602.pdf      article_20210602_08.png   article_20210602_17.png
+article_20210602_00.png   article_20210602_09.png   article_20210602_18.png
+article_20210602_01.png   article_20210602_10.png   article_20210602_19.png
+article_20210602_02.png   article_20210602_11.png   article_20210602_20.png
+article_20210602_03.png   article_20210602_12.png   article_20210602_21.png
+article_20210602_04.png   article_20210602_13.png   article_20210602_22.png
+article_20210602_05.png   article_20210602_14.png   article_20210602_23.png
+article_20210602_06.png   article_20210602_15.png   article_20210602_24.png
+article_20210602_07.png   article_20210602_16.png   article_20210602_25.png
+---------------------------------------------------------------------------
