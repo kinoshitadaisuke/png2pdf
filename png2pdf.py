@@ -1,7 +1,7 @@
-#!/usr/pkg/bin/python3.9
+#!/usr/bin/env python3
 
 #
-# Time-stamp: <2021/06/01 14:59:09 (CST) daisuke>
+# Time-stamp: <2021-06-02 17:11:13 nmaeda>
 #
 
 #
@@ -47,15 +47,20 @@ files_png         = args.files
 file_pdf_combined = args.output
 
 # commands
-command_convert  = '/usr/pkg/bin/convert'
-command_tiff2pdf = '/usr/pkg/bin/tiff2pdf'
-command_gs       = '/usr/pkg/bin/gs'
+command_convert  = subprocess.run('which convert', shell=True, stdout=subprocess.PIPE, text=True).stdout
+command_tiff2pdf = subprocess.run('which tiff2pdf', shell=True, stdout=subprocess.PIPE, text=True).stdout
+command_gs       = subprocess.run('which gs', shell=True, stdout=subprocess.PIPE, text=True).stdout
 option_tiff2pdf  = ''
 option_gs        = '-dNOPAUSE -dBATCH -q -sDEVICE=pdfwrite'
 
+# remove escape sequance
+command_convert = command_convert.split("\n")[0]
+command_tiff2pdf = command_tiff2pdf.split("\n")[0]
+command_gs = command_gs.split("\n")[0]
+
 # check of existence of commmands
 path_convert = pathlib.Path (command_convert)
-if not path_convert.exists ():
+if not path_convert.is_file ():
     print ("The command \"%s\" does not exist." % command_convert)
     print ("Install graphics/ImageMagick on your computer!")
     sys.exit ()
