@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 #
-# Time-stamp: <2021-06-02 17:11:13 nmaeda>
+# Time-stamp: <2021-06-02 17:24:39 nmaeda>
 #
 
 #
@@ -60,7 +60,7 @@ command_gs = command_gs.split("\n")[0]
 
 # check of existence of commmands
 path_convert = pathlib.Path (command_convert)
-if not path_convert.is_file ():
+if not path_convert.exists ():
     print ("The command \"%s\" does not exist." % command_convert)
     print ("Install graphics/ImageMagick on your computer!")
     sys.exit ()
